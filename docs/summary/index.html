@@ -30,18 +30,19 @@
       --blue-bg: #e6f1fb;
       --blue-border: #185fa5;
       --blue-text: #042c53;
+      --blue-mid: #185fa5;
     }
 
     body {
       background: var(--gray-bg);
       font-family: 'DM Sans', sans-serif;
       color: var(--black);
-      padding: 3rem 1.5rem 5rem;
+      padding: 3rem 1.5rem 6rem;
       line-height: 1.6;
     }
 
     .page {
-      max-width: 680px;
+      max-width: 700px;
       margin: 0 auto;
     }
 
@@ -79,17 +80,18 @@
       margin-bottom: 10px;
     }
     h1 {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 500;
       line-height: 1.2;
       letter-spacing: -0.02em;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .intro {
       font-size: 15px;
       color: var(--gray-dark);
-      line-height: 1.7;
-      max-width: 580px;
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 0.5rem;
     }
 
     /* ── SECTION LABEL ── */
@@ -100,40 +102,41 @@
       text-transform: uppercase;
       color: var(--gray-mid);
       margin-bottom: 12px;
-      margin-top: 2.5rem;
+      margin-top: 2.75rem;
+      scroll-margin-top: 2rem;
     }
 
     /* ── FINDING CARDS ── */
     .finding {
       border: 1.5px solid var(--black);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: grid;
-      grid-template-columns: 4px 1fr;
+      grid-template-columns: 5px 1fr;
     }
-    .finding-accent {
-      background: var(--black);
-    }
-    .finding-body {
-      padding: 1rem 1.25rem;
-    }
+    .finding-accent { background: var(--black); }
+    .finding-body { padding: 1.1rem 1.25rem; }
+
     .finding.red    { border-color: var(--red-border); }
     .finding.red    .finding-accent { background: var(--red-border); }
     .finding.red    .finding-body { background: var(--red-bg); }
+
     .finding.amber  { border-color: var(--amber-border); }
     .finding.amber  .finding-accent { background: var(--amber-border); }
     .finding.amber  .finding-body { background: var(--amber-bg); }
+
     .finding.green  { border-color: var(--green-border); }
     .finding.green  .finding-accent { background: var(--green-border); }
     .finding.green  .finding-body { background: var(--green-bg); }
+
     .finding.blue   { border-color: var(--blue-border); }
     .finding.blue   .finding-accent { background: var(--blue-border); }
     .finding.blue   .finding-body { background: var(--blue-bg); }
 
     .finding-claim {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 500;
-      margin-bottom: 6px;
-      line-height: 1.4;
+      margin-bottom: 8px;
+      line-height: 1.35;
     }
     .finding.red   .finding-claim { color: var(--red-text); }
     .finding.amber .finding-claim { color: var(--amber-text); }
@@ -141,9 +144,9 @@
     .finding.blue  .finding-claim { color: var(--blue-text); }
 
     .finding-detail {
-      font-size: 13px;
-      line-height: 1.65;
-      margin-bottom: 10px;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-bottom: 12px;
     }
     .finding.red   .finding-detail { color: var(--red-mid); }
     .finding.amber .finding-detail { color: var(--amber-mid); }
@@ -158,6 +161,7 @@
       border-radius: 3px;
       text-decoration: none;
       transition: opacity 0.15s;
+      margin-top: 2px;
     }
     .citation:hover { opacity: 0.75; }
     .finding.red   .citation { background: var(--red-border); color: #fff; }
@@ -165,13 +169,14 @@
     .finding.green .citation { background: var(--green-border); color: #fff; }
     .finding.blue  .citation { background: var(--blue-border); color: #fff; }
 
-    /* ── STAT CALLOUT ── */
+    /* ── STAT ── */
     .stat {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 500;
       letter-spacing: -0.02em;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      line-height: 1;
     }
     .finding.red   .stat { color: var(--red-border); }
     .finding.amber .stat { color: var(--amber-border); }
@@ -182,46 +187,51 @@
     hr {
       border: none;
       border-top: 0.5px solid var(--gray-light);
-      margin: 2.5rem 0;
+      margin: 3rem 0 2rem;
     }
 
     /* ── SOURCES ── */
-    .sources {
-      background: #fff;
-      border: 0.5px solid var(--gray-light);
-      padding: 1.25rem;
-    }
-    .sources h2 {
-      font-size: 13px;
+    .sources-header {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
       font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
       margin-bottom: 1rem;
     }
     .source-item {
-      padding: 0.75rem 0;
+      padding: 1rem 0;
       border-bottom: 0.5px solid var(--gray-light);
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 1.5rem;
     }
     .source-item:last-child { border-bottom: none; }
     .source-id {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
       color: var(--gray-mid);
-      margin-bottom: 3px;
+      padding-top: 2px;
+      line-height: 1.5;
     }
     .source-title {
       font-size: 13px;
       font-weight: 500;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
       color: var(--black);
+      line-height: 1.4;
     }
     .source-authors {
       font-size: 11px;
       color: var(--gray-mid);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+      font-style: italic;
     }
     .source-link {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
-      color: var(--blue-border);
+      color: var(--blue-mid);
       text-decoration: none;
       word-break: break-all;
     }
@@ -229,15 +239,27 @@
 
     /* ── FOOTER ── */
     footer {
-      margin-top: 2.5rem;
+      margin-top: 3rem;
       border-top: 1px solid var(--black);
       padding-top: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
     }
     footer p {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
       color: var(--gray-mid);
     }
+    footer a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--blue-mid);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -301,24 +323,28 @@
 
   <hr>
 
-  <div class="sources">
-    <h2>Full citations</h2>
+  <p class="sources-header">Full citations</p>
 
-    <div class="source-item">
-      <p class="source-id">Pava-Ripoll et al., 2018</p>
+  <div class="source-item">
+    <p class="source-id">Pava-Ripoll<br>et al., 2018</p>
+    <div>
       <p class="source-title">Filth flies as vectors of foodborne pathogens: a review</p>
       <p class="source-authors">Pava-Ripoll M, Pearson REG, Miller AK, Ziobro GC</p>
       <a class="source-link" href="https://pubmed.ncbi.nlm.nih.gov/29490101/" target="_blank" rel="noopener">pubmed.ncbi.nlm.nih.gov/29490101/</a>
     </div>
+  </div>
 
-    <div class="source-item">
-      <p class="source-id">PMC5928814</p>
+  <div class="source-item">
+    <p class="source-id">PMC5928814</p>
+    <div>
       <p class="source-title">Houseflies and blowflies as potential vectors of foodborne pathogens</p>
       <a class="source-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5928814/" target="_blank" rel="noopener">ncbi.nlm.nih.gov/pmc/articles/PMC5928814/</a>
     </div>
+  </div>
 
-    <div class="source-item">
-      <p class="source-id">Sela et al., PMC1169043</p>
+  <div class="source-item">
+    <p class="source-id">Sela et al.,<br>PMC1169043</p>
+    <div>
       <p class="source-title">Survival of Escherichia coli O157:H7 in the house fly</p>
       <p class="source-authors">Sela S, Nestel D, Pinto R, Nemny-Lavy E, Bar-Joseph M</p>
       <a class="source-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1169043/" target="_blank" rel="noopener">ncbi.nlm.nih.gov/pmc/articles/PMC1169043/</a>
