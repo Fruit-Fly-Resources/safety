@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOA Trash & Recycling Notice</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 2rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .poster {
+      width: 8.5in;
+      min-height: 11in;
+      background: #fff;
+      padding: 0.65in 0.7in;
+      color: #000;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #000;
+      padding-top: 0.35in;
+      margin-bottom: 0.3in;
+    }
+    .eyebrow {
+      font-size: 9.5pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 8px;
+      font-family: 'DM Mono', monospace;
+    }
+    h1 {
+      font-size: 28pt;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .intro {
+      font-size: 11pt;
+      color: #333;
+      line-height: 1.65;
+      max-width: 90%;
+    }
+
+    /* ── SCIENCE BOX ── */
+    .science-box {
+      border: 1.5px solid #000;
+      padding: 0.2in 0.25in;
+      margin-bottom: 0.28in;
+    }
+    .science-text {
+      font-size: 11pt;
+      line-height: 1.7;
+      color: #000;
+      margin-bottom: 0.15in;
+    }
+    .highlight {
+      background: #fffde0;
+      font-weight: 500;
+      padding: 0 2px;
+    }
+    .qr-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 0.12in;
+      border-top: 0.5px solid #ccc;
+    }
+    .qr-box {
+      width: 64px;
+      height: 64px;
+      border: 1.5px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      /* =========================================
+         REPLACE: swap the img tag below with your
+         actual QR code image, e.g.:
+         <img src="qr.png" width="60" height="60">
+         ========================================= */
+    }
+    .qr-placeholder {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(7, 1fr);
+      gap: 1px;
+    }
+    .qr-label {
+      font-size: 10pt;
+    }
+    .qr-label strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+    .qr-url {
+      font-size: 9pt;
+      color: #555;
+      font-family: 'DM Mono', monospace;
+      /* =========================================
+         REPLACE: change the URL below to your
+         actual GitHub pages URL
+         ========================================= */
+    }
+
+    /* ── STEPS LABEL ── */
+    .steps-label {
+      font-size: 8.5pt;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 0.12in;
+    }
+
+    /* ── STEP ROWS ── */
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 0.12in;
+      padding-bottom: 0.12in;
+    }
+    .step:first-of-type {
+      border-bottom: 0.5px solid #ddd;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 12pt;
+      font-weight: 500;
+      background: #fffde0;
+      margin-top: 1px;
+    }
+    .step-title {
+      font-size: 13pt;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+    .step-body {
+      font-size: 10.5pt;
+      color: #444;
+      line-height: 1.55;
+    }
+
+    /* ── BLOCKQUOTE ── */
+    .aside {
+      border-left: 3px solid #000;
+      padding-left: 0.18in;
+      margin: 0.28in 0;
+    }
+    .aside p {
+      font-size: 10.5pt;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid #000;
+      padding-top: 0.1in;
+      margin-top: 0.1in;
+    }
+    .footer p {
+      font-size: 9pt;
+      color: #888;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .poster { width: 100%; min-height: auto; padding: 0.6in 0.65in; }
+    }
+  </style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="header">
+    <p class="eyebrow">A note from your neighbors</p>
+    <h1>We have a fruit fly problem.<br>We can fix it.</h1>
+    <p class="intro">The bin area has been breeding fruit flies — and they don't stay there. Two small habits from each of us will eliminate the problem entirely.</p>
+  </div>
+
+  <div class="science-box">
+    <p class="science-text">
+      Lab studies confirm fruit flies mechanically transfer
+      <span class="highlight">E. coli, Salmonella, and Listeria</span>
+      onto food — one landing is enough. They also leave excrement on
+      surfaces they land on, and we're seeing that damage on the garage walls.
+    </p>
+    <div class="qr-row">
+
+      <div class="qr-box">
+        <div id="qrcode"></div>
+      </div>
+
+      <div class="qr-label">
+        <strong>See the research</strong>
+        <p class="qr-url">fruit-fly-resources.github.io/safety/summary</p>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="steps-label">The fix takes about 5 seconds.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div>
+      <p class="step-title">Seal your trash bag before tossing it</p>
+      <p class="step-body">Tie it closed every time — even for small amounts. Open bags are the main breeding source.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div>
+      <p class="step-title">Rinse cans & bottles before recycling</p>
+      <p class="step-body">Sticky residue in bottles and cans is a prime breeding site. A quick rinse breaks the cycle.</p>
+    </div>
+  </div>
+
+  <div class="aside">
+    <p>We're currently paying for weekly professional bin cleaning that wouldn't be necessary otherwise — money that could go toward keeping dues flat or improving the building. More than the cost: this is our home. We can do better than this.</p>
+  </div>
+
+  <div class="footer">
+    <p>Most of us are already doing this right — thank you.</p>
+  </div>
+
+</div>
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://fruit-fly-resources.github.io/safety/summary",
+    width: 54,
+    height: 54,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+</script>
+</body>
+</html>
