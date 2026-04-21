@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HOA Trash & Recycling Notice</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://unpkg.com/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap');
 
@@ -81,18 +81,19 @@
       border-top: 0.5px solid #ccc;
     }
     .qr-box {
-      width: 64px;
-      height: 64px;
+      width: 72px;
+      height: 72px;
       border: 1.5px solid #000;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      /* =========================================
-         REPLACE: swap the img tag below with your
-         actual QR code image, e.g.:
-         <img src="qr.png" width="60" height="60">
-         ========================================= */
+    }
+    #qrcode {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
     }
     .qr-placeholder {
       width: 52px;
@@ -256,14 +257,18 @@
 
 </div>
 <script>
-  new QRCode(document.getElementById("qrcode"), {
-    text: "https://fruit-fly-resources.github.io/safety/summary",
-    width: 54,
-    height: 54,
-    colorDark: "#000000",
-    colorLight: "#ffffff",
-    correctLevel: QRCode.CorrectLevel.M
+  const qrCode = new QRCodeStyling({
+    width: 66,
+    height: 66,
+    type: "svg",
+    data: "https://fruit-fly-resources.github.io/safety/summary",
+    qrOptions: { errorCorrectionLevel: "M" },
+    dotsOptions: { color: "#000000", type: "rounded" },
+    cornersSquareOptions: { color: "#000000", type: "extra-rounded" },
+    cornersDotOptions: { color: "#000000", type: "dot" },
+    backgroundOptions: { color: "#ffffff" }
   });
+  qrCode.append(document.getElementById("qrcode"));
 </script>
 </body>
 </html>
